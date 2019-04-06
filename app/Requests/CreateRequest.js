@@ -5,8 +5,10 @@
  * Created by amay on 4/5/19.
  */
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View, Button, TextInput, Alert, DatePickerIOS } from 'react-native';
+import {AppRegistry, StyleSheet, Text, View, Button, TextInput, Alert } from 'react-native';
 import { CheckBox } from 'react-native-elements'
+
+
 
 export default class ViewProfile extends React.Component {
 
@@ -19,8 +21,8 @@ export default class ViewProfile extends React.Component {
 
 
         this.state = {
-            startdate: new Date(),
-            enddate: new Date(),
+            startdate: '',
+            enddate: '',
             pickup: '',
             destination: '',
             recurring: false,
@@ -34,16 +36,7 @@ export default class ViewProfile extends React.Component {
 
         };
 
-        this.setstartDate = this.setstartDate.bind(this);
-        this.setendDate = this.setendDate.bind(this);
-    }
 
-
-    setstartDate(newDate) {
-        this.setState({startdate: newDate});
-    }
-    setendDate(newDate) {
-        this.setState({enddate: newDate});
     }
 
     componentDidMount() {
@@ -138,10 +131,12 @@ export default class ViewProfile extends React.Component {
                     onChangeText={(text) => this.setState({destination: text})}
                     value={this.state.destination}
                 />
-                <Text>Time</Text>
-                <DatePickerIOS
-                    date={this.state.startdate}
-                    onDateChange={this.setDate}
+                <Text>Pickup Time</Text>
+                <TextInput
+                    style={{height: 20,width: 100, borderColor: 'gray', borderWidth: 1}}
+                    autoCapitalize='none'
+                    onChangeText={(text) => this.setState({startdate: text})}
+                    value={this.state.startdate}
                 />
                 <CheckBox
                     title='Recurring'
@@ -192,13 +187,15 @@ export default class ViewProfile extends React.Component {
                             onPress={() => this.setState({saturday: !this.state.saturday})}
                             size={15}
                         />
-                        <Text>End Date</Text>
-                        <DatePickerIOS
-                            date={this.state.enddate}
-                            onDateChange={this.setendDate}
+                        <Text>Last Day of Pickup</Text>
+                        <TextInput
+                            style={{height: 20,width: 100, borderColor: 'gray', borderWidth: 1}}
+                            autoCapitalize='none'
+                            onChangeText={(text) => this.setState({enddate: text})}
+                            value={this.state.enddate}
                         />
                     </View> :
-                    <Text></Text>
+                    <View></View>
 
                 }
                 <Button

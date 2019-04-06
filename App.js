@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import LoginScreen from './app/Login/Login'
@@ -16,6 +16,10 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+          <Image
+              style={{resizeMode: 'contain'}}
+              source={require('./app/images/logo.png')}
+          />
           <Button
               title="Login"
               onPress={ () => this.props.navigation.push('Login') }

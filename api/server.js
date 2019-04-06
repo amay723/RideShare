@@ -9,11 +9,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 var con = mysql.createConnection({
 
-    host: 'localhost',
-    port: '3306',
-    user: 'cs470_amay',
-    password: 'ma7077',
-    database: 'test'
+    host: 'hostname',
+    port: '#',
+    user: 'username',
+    password: '********',
+    database: 'db'
     
 });
 
